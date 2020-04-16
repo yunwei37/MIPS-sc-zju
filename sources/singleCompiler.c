@@ -1,4 +1,4 @@
-#include "compiler.h"
+#include "../headers/compiler.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,8 +8,8 @@
 typedef struct {
 	char inst[8];
 	char type;
-	int op;
-	int func;
+    code op;
+    code func;
 } instProp;
 
 // used to look up for func code and op code
@@ -281,7 +281,7 @@ int loadCodeDict() {
 	}
 	instProp instruction;
 	int i = 0;
-	while (fscanf(codeRecord, "%s %c %d %d", 
+    while (fscanf(codeRecord, "%s %c %u %u",
 		&(instruction.inst), &(instruction.type), &(instruction.op), &(instruction.func)) == 4) {
 		instDict[i++] = instruction;
 	}

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1231</width>
-    <height>730</height>
+    <width>1298</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -50,7 +50,7 @@
        <enum>Qt::NoContextMenu</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="EditTab">
        <property name="enabled">
@@ -772,7 +772,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1231</width>
+     <width>1298</width>
      <height>29</height>
     </rect>
    </property>

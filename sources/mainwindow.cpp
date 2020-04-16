@@ -1,17 +1,17 @@
-#include "mainwindow.h"
+#include "../headers/mainwindow.h"
 #include "qdir.h"
 #include "qdialog.h"
 #include "qfiledialog.h"
 #include "ui_mainwindow.h"
 #include "qmessagebox.h"
 #include "qfontdialog.h"
-#include "simulator.h"
+#include "../headers/simulator.h"
 
 extern "C"
 
 {
 
- #include "compiler.h"
+ #include "../headers/compiler.h"
 
 }
 

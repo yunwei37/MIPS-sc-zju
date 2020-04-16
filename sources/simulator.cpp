@@ -1,4 +1,4 @@
-#include "simulator.h"
+#include "../headers/simulator.h"
 #define _CRT_SECURE_NO_WARNINGS
 
 // function code for R type instructions

@@ -4,7 +4,7 @@
 #include <string.h>
 #include<stdio.h>
 #include<ctype.h>
-#include "compiler.h"
+#include "../headers/compiler.h"
 
 #define MINSTACKSIZE 30
 #define MAXLINES 4096

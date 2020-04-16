@@ -1,4 +1,4 @@
-#include "compiler.h"
+#include "../headers/compiler.h"
 #include <string.h>
 #include <stdio.h>
 
