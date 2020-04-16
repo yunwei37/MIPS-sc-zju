@@ -25,10 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    compile.c \
+    singleCompiler.c \
+    highlighter.cpp \
+    simulator.cpp \
+    decompiler.c
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    compiler.h \
+    highlighter.h \
+    simulator.h
 
 FORMS += \
         mainwindow.ui
