@@ -11,7 +11,7 @@ int decompileCode(code ir,char* buffer){
     code rd = (ir >> 11) & 0x0000001f;
     code imm = ir & 0x0000ffff;
     int immse = (int)((short)((unsigned short)imm));
-    code immue = (code)((unsigned short)imm);
+    //code immue = (code)((unsigned short)imm);
     code addr = ir & 0x03ffffff;
 
 

@@ -40,3 +40,5 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+RC_ICONS = icon.ico
