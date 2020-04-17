@@ -1,4 +1,5 @@
 #include "../headers/simulator.h"
+#include <fstream>
 #define _CRT_SECURE_NO_WARNINGS
 
 // function code for R type instructions
@@ -44,6 +45,25 @@ code simulator::getBreakpoint() const
 void simulator::setBreakpoint(const code &value)
 {
     breakpoint = value;
+}
+
+int simulator::exportMemory(string fname)
+{
+    ofstream out(fname, ios::out|ios::binary);
+    out.write((const char*)memory, sizeof(code)*memsize);
+    out.close();
+    return 1;
+}
+
+int simulator::loadMemory(string fname)
+{
+    ifstream in(fname, ios::in|ios::binary);
+    in.read((char*)memory, sizeof(code)*memsize);
+    in.close();
+    for(int i=0;i<memsize;++i){
+        setMemory(i*4,memory[i]);
+    }
+    return 1;
 }
 
 simulator::simulator(int size) {

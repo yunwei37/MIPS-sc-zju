@@ -62,6 +62,9 @@ public:
     int getSize();
     code getBreakpoint() const;
     void setBreakpoint(const code &value);
+
+    int exportMemory(string fname);
+    int loadMemory(string fname);
 };
 
 

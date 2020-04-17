@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     highlighter = new Highlighter(ui->codeEdit->document());
     highlighter = new Highlighter(ui->memoryText->document());
+    highlighter = new Highlighter(ui->registerText->document());
     //ui->linenoText->setFont(ui->codeEdit->font());
     sim = new simulator(MAXMEMSIZE);
     initSim();
@@ -151,7 +152,11 @@ void MainWindow::on_viewMemoryButton_clicked()
     code addr = maddr.toUInt();
     QTextCursor tc = ui->memoryText->textCursor();
     tc.setPosition(0);
-     //       QTextBlock QTextDocument::findBlockByLineNumber(int lineNumber) const
+    int h = ui->memoryText->height();
+    //char buffer[20];
+    //itoa(h,buffer,10);
+   // ui->outputText->setText(buffer);
+    ui->memoryText->scroll(0,addr/sim->getSize()*h);
 }
 
 void MainWindow::on_setMemoryButton_clicked()
@@ -173,7 +178,7 @@ void MainWindow::refreshMemline(int addr)
     txtcur.movePosition(QTextCursor::Down,QTextCursor::KeepAnchor);
     txtcur.movePosition(QTextCursor::StartOfLine,QTextCursor::KeepAnchor);
     QString qstr= txtcur.selectedText();
-    ui->outputText->setText(qstr);
+    //ui->outputText->setText(qstr);
     txtcur.removeSelectedText();
 
     QString mtext = "";
@@ -258,15 +263,35 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_actionexit_triggered()
 {
-
+    exit(0);
 }
 
 void MainWindow::on_actionexport_triggered()
 {
-
+    on_compileButton_clicked();
+    sim->loadbinary();
+    if(compiledflag == 0) return;
+    QString curPath=QDir::currentPath();//获取系统当前目录
+    QString dlgTitle="export"; //对话框标题
+    QString filter="binary(*.bin);;all(*.*)";
+    QString aFileName = QFileDialog::getSaveFileName(this,dlgTitle,curPath,filter);
+    if (aFileName.isEmpty())
+        return;
+    string fname = aFileName.toStdString();
+    sim->exportMemory(fname);
 }
 
 void MainWindow::on_actionimport_binary_triggered()
 {
-
+    on_simulateButton_clicked();
+    QString curPath=QDir::currentPath();//获取系统当前目录
+    QString dlgTitle="import"; //对话框标题
+    QString filter="binary(*.bin);;all(*.*)";
+    QString aFileName=QFileDialog::getOpenFileName(this,dlgTitle,curPath,filter);
+    if (aFileName.isEmpty())
+        return;
+    string fname = aFileName.toStdString();
+    sim->loadMemory(fname);
+    freshDisplay();
+    freshallMem();
 }

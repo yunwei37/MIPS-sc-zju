@@ -11,6 +11,7 @@ srav R 0 7
 slti I 10 0
 sltiu I 11 0
 addi I 8 0
+addiu I 8 0
 andi I 12 0
 ori I 13 0
 xori I 14 0
