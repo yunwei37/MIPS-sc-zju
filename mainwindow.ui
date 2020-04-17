@@ -778,6 +778,7 @@
     <addaction name="actionsave"/>
     <addaction name="actionexport"/>
     <addaction name="actionimport_binary"/>
+    <addaction name="separator"/>
     <addaction name="actionsetting"/>
     <addaction name="actionexit"/>
    </widget>

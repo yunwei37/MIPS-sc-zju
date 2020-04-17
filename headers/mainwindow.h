@@ -53,6 +53,12 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_actionexit_triggered();
+
+    void on_actionexport_triggered();
+
+    void on_actionimport_binary_triggered();
+
 private:
     Ui::MainWindow *ui;
     simulator *sim;

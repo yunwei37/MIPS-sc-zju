@@ -255,3 +255,18 @@ void MainWindow::on_pushButton_3_clicked()
     sim->reset();
     freshDisplay();
 }
+
+void MainWindow::on_actionexit_triggered()
+{
+
+}
+
+void MainWindow::on_actionexport_triggered()
+{
+
+}
+
+void MainWindow::on_actionimport_binary_triggered()
+{
+
+}
